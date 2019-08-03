@@ -23,8 +23,8 @@ setURLParam("lesson", "lesson1");
   {
     title: "Create 3D object",
     text: [
-      `Let's order a spaceship for him. From "Object" then "Add object: 3D Object"`,
-      `Choose "Tutorial" then "Spaceship"`,
+      "Let's order a spaceship for him. From Object > Add object: 3D Object.",
+      "Choose Tutorial > Spaceship",
       `<iframe 
         style="margin:auto"
         width="100%"
@@ -50,11 +50,33 @@ setURLParam("lesson", "lesson1");
       return false;
     }
   },
+  // {
+  //   text: [
+  //     "Bring the spaceship to Jack. Let’s put in the coordinates where we should put the spaceship.",
+  //     "Set position to 2, 0, 10",
+  //     `<img style='width:100%; height:100%' src='lessons/lesson2-fig2.gif'>`
+  //   ],
+  //   condition: () => {
+  //     let objectBlock = workspace.getTopBlocks()[0].getChildren()[0];
+  //     // let modelField = objectBlock.inputList[4].fieldRow[2].getValue();
+
+  //     let cordinates = objectBlock.inputList[1].fieldRow;
+
+  //     let corArr = cordinates.map(cor => {
+  //       return cor.getValue();
+  //     });
+
+  //     // if (corArr[1] !== 5 || corArr[2] !== 5 || corArr[3] !== 5) {
+  //     //   objectBlock.inputList[1];
+  //     // }
+  //     return corArr[1] == 2 && corArr[2] == 0 && corArr[3] == 10;
+  //   }
+  // },
   {
     title: "Create a variable",
     text: [
       "Now let name our spaceship",
-      `Detach "Add Object" and "3D Object"`,
+      "Detach Add Object block and 3D Object block",
       `<iframe
         style="margin:auto"
         width="100%"
@@ -77,8 +99,8 @@ setURLParam("lesson", "lesson1");
   {
     title: "Set variable",
     text: [
-      `Choose "Variables" then "Create variable". Name it "spaceship"`,
-      `Attach "Set spaceship to..." to "3D object"`,
+      "Variables > Create variable > spaceship",
+      `Attach Set spaceship to... to 3D object`,
       `<iframe
         style="margin:auto"
         width="100%"
@@ -123,8 +145,8 @@ setURLParam("lesson", "lesson1");
   {
     title: "Set variable",
     text: [
-      `Now, to add spaceship varialbe to the world. Attach "Add object" below "Set variable"`,
-      `Choose "Variables" then "spaceship". Attach "Add object" to "spaceship"`,
+      "Now add spaceship varialbe to the world. Attach Add object block below set variable",
+      "Get Variables > spaceship block. Attach Add object block to spaceship",
       `<iframe
         style="margin:auto"
         width="100%"
@@ -135,14 +157,11 @@ setURLParam("lesson", "lesson1");
       />`
     ],
     condition: () => {
-      let objectBlock = workspace.getTopBlocks();
-
       let spaceship = workspace.getVariable("spaceship");
       let blocks = spaceship
         ? workspace.getVariableUsesById(spaceship.getId())
         : null;
-        
-      if (blocks && blocks.length == 2 && objectBlock.length == 1) {
+      if (blocks && blocks.length == 2) {
         let t = ["variables_set", "variables_get"];
         for (let i = 0; i < t.length; i++) {
           if (blocks[i].type != t[i]) return false;

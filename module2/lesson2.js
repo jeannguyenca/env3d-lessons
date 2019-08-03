@@ -9,7 +9,7 @@ setURLParam("lesson", "lesson2");
   {
     title: "Move object",
     text: [
-      `Choose "Animation" then "Move tux forward". Change "tux" to "spaceship"`,
+      "Animation > Move ... forward. Change variable to spaceship",
       `<iframe 
       style="margin:auto" 
       width="100%" 
@@ -37,7 +37,7 @@ setURLParam("lesson", "lesson2");
   {
     title: "Turn object",
     text: [
-      `Choose "Animation" then "Turn tux left". Change "tux" to "spaceship" and attach it to "Move object"`,
+      `Animation > Turn... Change variable to spaceship and attach it to Move object block`,
       `<iframe 
       style="margin:auto" 
       width="100%" 
@@ -65,8 +65,8 @@ setURLParam("lesson", "lesson2");
   {
     title: "Do in sequence",
     text: [
-      `"Animation" work better inside "Do in Sequence"`,
-      `Choose "Animation" then "Do in sequence", drag the block to cover "move" and "turn" blocks`,
+      `Animation blocks work better inside "Do in Sequence" block`,
+      "Animation > do in sequence, drag the block to cover move and turn block",
       `<iframe 
       style="margin:auto" 
       width="100%" 
@@ -78,6 +78,8 @@ setURLParam("lesson", "lesson2");
       let blocks = workspace.getTopBlocks();
       let spaceship = workspace.getVariable("spaceship");
       let variableBlocks = workspace.getVariableUsesById(spaceship.getId());
+      console.log("Blocks: ", blocks);
+
       if (
         blocks.length === 2 &&
         (blocks[0].type === "env3d_loop_sequence" ||
@@ -91,6 +93,28 @@ setURLParam("lesson", "lesson2");
     title: "Have fun with animation",
     text: ["Explore the world by adding more move and turn blocks"],
     condition: () => {
+      // let blocks = workspace.getTopBlocks();
+
+      // if (blocks.length === 2) {
+      //   let b1 = workspace.newBlock("env3d_addObject");
+      //   let b2 = workspace.newBlock("env3d_object_model");
+      //   b2.inputList[1].fieldRow[1].setValue(5);
+      //   b2.inputList[1].fieldRow[2].setValue(1);
+      //   b2.inputList[1].fieldRow[3].setValue(5);
+
+      //   console.log("input", b2.inputList[4])
+
+      //   b2.inputList[4].fieldRow[1].setValue("Tutorial");
+      //   b2.inputList[4].fieldRow[2].setValue("ap_Tutorial/planet2");
+
+      //   Object.values(workspace.blockDB_).forEach(b => {
+      //     b.initSvg();
+      //     b.render();
+      //   });
+
+      //   b1.getInput("OBJECT").connection.connect(b2.outputConnection);
+      // }
+
       return true;
     }
   },

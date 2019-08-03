@@ -7,10 +7,10 @@ setURLParam("lesson", "lesson3");
     text: []
   },
   {
-    title: "Add an event",
+    title: "Add event block",
     text: [
-      `Choose "Event" then "When you look at". Change "tux" to "spaceship"`,
-      `Drag and attach "When you look at" to cover "Do in sequence"`,
+      "Event > When you look at spaceship\n",
+      "Drag and attach to do in sequence block and change the variable to “spaceship”",
       `<iframe 
       style="margin:auto" 
       width="100%" 
@@ -42,7 +42,7 @@ setURLParam("lesson", "lesson3");
   {
     title: "Challenge",
     text: [
-      "Try adding a planet as a new object and try to take the spaceship to the planet"
+      "Try adding a planet as a new object and try to take the spaceship to the planet (You can skip this step)"
     ],
     condition: () => {
       return true;
