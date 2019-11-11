@@ -7,9 +7,9 @@ setURLParam("lesson", "lesson2");
     text: []
   },
   {
-    title: "Move the car",
+    title: "Move the boat",
     text: [
-      `Choose "Animation" then "Move tux forward". Change "tux" to "myCar"`,
+      `Choose "Animation" then "Move tux forward". Change "tux" to "myBoat"`,
       `<iframe 
       style="margin:auto" 
       width="100%" 
@@ -18,18 +18,17 @@ setURLParam("lesson", "lesson2");
       allowfullscreen/>`
     ],
     condition: () => {
-      // let blocks = workspace.getTopBlocks();
-      let variable = workspace.getVariable("myCar");
-      let variableBlocks = workspace.getVariableUsesById(variable.getId());
-      console.log("Variables: ", variableBlocks);
+      // let variable = workspace.getVariable("myCar");
+      // let variableBlocks = workspace.getVariableUsesById(variable.getId());
+      // console.log("Variables: ", variableBlocks);
 
-      for (const aVariableBlock of variableBlocks) {
-        if (aVariableBlock.parentBlock_ !== null) {
-          if (aVariableBlock.parentBlock_.type == "env3d_move") {
-            return true;
-          }
-        }
-      }
+      // for (const aVariableBlock of variableBlocks) {
+      //   if (aVariableBlock.parentBlock_ !== null) {
+      //     if (aVariableBlock.parentBlock_.type == "env3d_move") {
+      //       return true;
+      //     }
+      //   }
+      // }
       // if (blocks.length === 2 && blocks[1].childBlocks_ !== null) {
       // }
     }
@@ -37,7 +36,7 @@ setURLParam("lesson", "lesson2");
   {
     title: "Turn object",
     text: [
-      `Choose "Animation" then "Turn tux left". Change "tux" to "spaceship" and attach it to "Move object"`,
+      `Choose "Animation" then "Turn tux left". Change "tux" to "myBoat" and attach it to "Move object"`,
       `<iframe 
       style="margin:auto" 
       width="100%" 
@@ -46,20 +45,18 @@ setURLParam("lesson", "lesson2");
       allowfullscreen/>`
     ],
     condition: () => {
-      // let blocks = workspace.getTopBlocks();
-      let variable = workspace.getVariable("myCar");
-      let variableBlocks = workspace.getVariableUsesById(variable.getId());
-      console.log("Variables: ", variableBlocks);
+      // let variable = workspace.getVariable("myCar");
+      // let variableBlocks = workspace.getVariableUsesById(variable.getId());
+      // console.log("Variables: ", variableBlocks);
 
-      for (const aVariableBlock of variableBlocks) {
-        if (aVariableBlock.parentBlock_ !== null) {
-          if (aVariableBlock.parentBlock_.type == "env3d_turn") {
-            return true;
-          }
-        }
-      }
-      // if (blocks.length === 2 && blocks[1].childBlocks_ !== null) {
+      // for (const aVariableBlock of variableBlocks) {
+      //   if (aVariableBlock.parentBlock_ !== null) {
+      //     if (aVariableBlock.parentBlock_.type == "env3d_turn") {
+      //       return true;
+      //     }
+      //   }
       // }
+
     }
   },
   {

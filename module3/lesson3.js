@@ -9,7 +9,7 @@ setURLParam("lesson", "lesson3");
   {
     title: "Add an event",
     text: [
-      `Choose "Event" then "When you look at". Change "tux" to "myCar"`,
+      `Choose "Event" then "When you look at". Change "tux" to "myBoat"`,
       `Drag and attach "When you look at" to cover "Do in sequence"`,
       `<iframe 
       style="margin:auto" 

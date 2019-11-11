@@ -9,17 +9,18 @@ function getBlock(block) {
 
 const object = getBlock("object.png"),
       addObj_3dobj = getBlock("addObj_3dobj.png"),
-      vehicles = getBlock("module2/vehicles.png"),
-      car = getBlock("module2/car.png"),
+      fourSeasons = getBlock("module3/fourSeasons.png"),
       world = getBlock("world.png"),
       outdoor = getBlock("outdoor.png"),
+      vehicles = getBlock("module3/vehicles.png"),
+      boat = getBlock("module3/boat.png"),
       addObj = getBlock("addobj.png"),
-      addObj_dis = getBlock("addobj_disable.png"),
+      addobj_dis = getBlock("addobj_disable.png"),
       threeDObj = getBlock("3dobj.png"),
       variables = getBlock("variables.png"),
       createVariable = getBlock("createVar.png"),
-      setVariableCar = getBlock("module2/setmyCar.png"),
-      aVariableCar = getBlock("module2/myCar.png"),
+      setVariableBoat = getBlock("module3/setmyBoat.png"),
+      aVariableBoat = getBlock("module3/myBoat.png"),
       animation = getBlock("animation.png"),
       move = getBlock("move.png"),
       aVariableTux = getBlock("tux.png"),
@@ -28,8 +29,8 @@ const object = getBlock("object.png"),
       move_short = getBlock("move_short.png"),
       turn_short = getBlock("turn_short.png"),
       events = getBlock("events.png"),
-      whenlookat = getBlock("whenlookat.png"),
-      roadAndSign = getBlock("module2/roadsandsigns.png");
+      whenlookat = getBlock("whenlookat.png");
+
 
 [
   {
@@ -51,11 +52,10 @@ const object = getBlock("object.png"),
     }
   },
   {
-    title: "Let's get a car",
+    title: "Let's create an environment object",
     text: [
-      `From ${ object } choose ${ addObj_3dobj }`,
-      `Choose model ${ vehicles } and ${ car }`,
-      `Choose a car that you like.`,
+      `Choose ${ object } then ${ addObj_3dobj }`,
+      `Choose model ${ fourSeasons }`
     ],
     condition: () => {
       let blocks = workspace.getTopBlocks();
@@ -66,7 +66,7 @@ const object = getBlock("object.png"),
         let inputObj = blocks[0].childBlocks_[0].inputList[4].fieldRow[2].text_;
 
         if (blocks.length == 1 && blocks[0].type == "env3d_addObject") {
-          if (inputModel === "Vehicles" && inputObj === "car") return true;
+          if (inputModel === "FourSeasons") return true;
         }
       }
 
@@ -74,11 +74,11 @@ const object = getBlock("object.png"),
     }
   },
   {
-    title: "Let's create a background",
+    title: "Add the sky to the world",
     text: [
-      `From ${ world } choose ${ outdoor } block to the workspace`,
-      `Attach it above ${ addObj_3dobj } block`,
-      `Change the sky and terrain as you like`
+      `From ${ world } choose ${ outdoor }`,
+      `Drag and drop the ${ outdoor } block and attach it above ${ addObj_3dobj }`, 
+      `Explore different sky options`
     ],
     condition: () => {
       let objectBlock = workspace.getTopBlocks();
@@ -90,41 +90,77 @@ const object = getBlock("object.png"),
     }
   },
   {
+    title: "Explore the 3d environmnet object",
+    text: [
+      `For the purpose of the tutorial, try to achieve the view below <img src="./lessons/module3/imgs/fourseasons_riverview.png" alt="Environment screenshot" />`
+      // (this will be implement with new UI) - position 50 2 30 - rotation 0 240 0`
+    ],
+    condition: () => {
+      return true;
+    }
+  },
+  {
+    title: "Let's get a boat",
+    text: [
+      `Choose ${ object } then ${ addObj_3dobj }`, 
+      `Drag it below to the existing blocks but don't plug it to the other blocks`,
+      `Choose model ${ vehicles } and ${ boat }`,
+      `Choose a boat that you like`,
+    ],
+    condition: () => {
+      let blocks = workspace.getTopBlocks();
+
+      if (blocks.length > 0) {
+        let inputModel =
+          blocks[1].childBlocks_[0].inputList[4].fieldRow[1].text_;
+        let inputObj = blocks[1].childBlocks_[0].inputList[4].fieldRow[2].text_;
+        console.log(blocks, inputObj);
+        if (blocks.length == 2 && blocks[1].type == "env3d_addObject") {
+          if (inputModel === "Vehicles" && inputObj === "boat") return true;
+        }
+      }
+
+      return false;
+    }
+  },
+  {
     title: "Now let make a variable",
     text: [
-      `In order to animate this car, we need to use a <a videoId="dejkw2aHDOI">variable</a>`,
-      `Detach ${ addObj } and ${ threeDObj }`,
+      `In order to animate this boat, we need to use a <a videoId="dejkw2aHDOI">variable</a>`,
+      `Detach ${ addObj } and ${ threeDObj } of the boat`
     ],
     condition: () => {
       let objectBlock = workspace.getTopBlocks();
 
-      return (
-        objectBlock.length === 2 &&
-        objectBlock[0].childBlocks_[2].type === "env3d_addObject" &&
-        objectBlock[0].childBlocks_[2].outputConnection === null
-      );
+      for (let aBlock of objectBlock) {
+        console.log("aBlock", aBlock);
+
+        if (
+          aBlock.type == "env3d_addObject" &&
+          aBlock.childBlocks_.length === 0
+        ) {
+          return true;
+        }
+      }
+      return false;
     }
   },
   {
     title: "",
     text: [
-      `From ${ variables } choose ${ createVariable }`,
-      `Name it myCar`,
-      `Attach ${ setVariableCar } to ${ threeDObj }`,
+      `From ${ variables } choose ${ createVariable }`, 
+      `Name it myBoat`,
+      `Attach ${ setVariableBoat } to ${ threeDObj }`,
     ],
     condition: () => {
       let objectBlock = workspace.getTopBlocks();
-
-      let block = workspace.getVariable("myCar");
-
+      let block = workspace.getVariable("myBoat");
       console.log("Blocks: objBlock", objectBlock);
       console.log("Blocks: ", block);
-
       if (block) {
-        if (objectBlock.length === 2) {
+        if (objectBlock.length === 3) {
           var setBlock = false,
             getBlock = false;
-
           for (let aBlock of objectBlock) {
             if (
               aBlock.type == "variables_set" &&
@@ -139,7 +175,6 @@ const object = getBlock("object.png"),
               getBlock = true;
             }
           }
-
           if (setBlock && getBlock) {
             return true;
           }
@@ -150,19 +185,16 @@ const object = getBlock("object.png"),
   {
     title: "",
     text: [
-      `Detach ${ addObj } from ${ outdoor }`,
-      `Attach ${ addObj_dis } below ${ setVariableCar }`,
-      `From ${ variables } choose ${ aVariableCar }`,
-      `Attach ${ aVariableCar } to ${ addObj_dis }`,
+      `Choose ${ variables } then ${ aVariableBoat }`,
+      `Attach ${ aVariableBoat } to ${ addobj_dis }`,
+      `Attach ${ addObj } below ${ setVariableBoat }`,
     ],
     condition: () => {
       let objectBlock = workspace.getTopBlocks();
-
-      let spaceship = workspace.getVariable("myCar");
+      let spaceship = workspace.getVariable("myBoat");
       let blocks = spaceship
         ? workspace.getVariableUsesById(spaceship.getId())
         : null;
-
       if (blocks && blocks.length == 2 && objectBlock.length == 2) {
         let t = ["variables_set", "variables_get"];
         for (let i = 0; i < t.length; i++) {
@@ -177,43 +209,16 @@ const object = getBlock("object.png"),
     }
   },
   {
-    title: "",
-    text: [`Attach ${ outdoor } above ${ setVariableCar }`],
-    condition: () => {
-      let objectBlock = workspace.getTopBlocks();
-      console.log("Blocks: ", objectBlock);
-      return (
-        objectBlock[0].type == "env3d_outdoor_inputs" &&
-        objectBlock[0].childBlocks_.length == 3
-      );
-    }
-  },
-  {
-    title: "",
-    text: [
-      "Let's add road and road signs!",
-      `From ${ object } choose ${ addObj_3dobj }`,
-      `Choose ${ roadAndSign }`,
-      `To move object to different position, change coordinate`, `<a href="/videos.html?src=usEAwJ0UkZY" target="_blank">Watch video instruction "What is 3D coordinates?"</a>`
-      
-    ],
-    condition: () => {
-      return true;
-    }
-  },
-  {
-    title: "Let's move the car!",
+    title: "Move the boat",
     text: [
       `From ${ animation } choose ${ move }`,
-      `Change ${ aVariableTux } to ${ aVariableCar }`,
-      `Adjust time and length of the movement. Start with a small number such as 0.1 to 1.`,
+      `Change ${ aVariableTux } to ${ aVariableBoat }`,
+      `Adjust time and length of the movement. Start with a small number such as 0.1 to 1.`
     ],
     condition: () => {
-      // let blocks = workspace.getTopBlocks();
-      let variable = workspace.getVariable("myCar");
+      let variable = workspace.getVariable("myBoat");
       let variableBlocks = workspace.getVariableUsesById(variable.getId());
       console.log("Variables: ", variableBlocks);
-
       for (const aVariableBlock of variableBlocks) {
         if (aVariableBlock.parentBlock_ !== null) {
           if (aVariableBlock.parentBlock_.type == "env3d_move") {
@@ -221,23 +226,20 @@ const object = getBlock("object.png"),
           }
         }
       }
-      // if (blocks.length === 2 && blocks[1].childBlocks_ !== null) {
-      // }
     }
   },
   {
     title: "",
     text: [
       `From ${ animation } choose ${ turn }`,
-      `Change ${ aVariableTux } to ${ aVariableCar } and attach it to ${ move_short }`,
-      `Try to adjust time and length to the turn block`,
+      `Change ${ aVariableTux } to ${ aVariableBoat } and attach it to ${ move_short }`,
+      `Try to adjust time and length to the turn block`
+
     ],
     condition: () => {
-      // let blocks = workspace.getTopBlocks();
-      let variable = workspace.getVariable("myCar");
+      let variable = workspace.getVariable("myBoat");
       let variableBlocks = workspace.getVariableUsesById(variable.getId());
       console.log("Variables: ", variableBlocks);
-
       for (const aVariableBlock of variableBlocks) {
         if (aVariableBlock.parentBlock_ !== null) {
           if (aVariableBlock.parentBlock_.type == "env3d_turn") {
@@ -245,8 +247,6 @@ const object = getBlock("object.png"),
           }
         }
       }
-      // if (blocks.length === 2 && blocks[1].childBlocks_ !== null) {
-      // }
     }
   },
   {
@@ -278,32 +278,39 @@ const object = getBlock("object.png"),
     title: "Let's make an interactive animation!",
     text: [
       `From ${ events } choose ${ whenlookat }`,
-      `Change ${ aVariableTux }  to ${ aVariableCar }`,
+      `Change ${ aVariableTux }  to ${ aVariableBoat }`,
       `Drag the block to cover ${ sequence }`,
       `<a videoId="ctRUmHQqB0I">Watch how to do it in a video</a>`
     ],
     condition: () => {
       let blocks = workspace.getTopBlocks();
-      let variable = workspace.getVariable("myCar");
+      let variable = workspace.getVariable("myBoat");
       let variableBlocks = workspace.getVariableUsesById(variable.getId());
-      console.log("Variables: ", variableBlocks);
+
+      let id;
 
       for (let aBlock of variableBlocks) {
         if (
           aBlock.parentBlock_ !== null &&
           aBlock.parentBlock_.type === "env3d_event_lookat"
         ) {
-          return true;
+          id = aBlock.parentBlock_.id;
         }
       }
 
+      for (let aBlock of blocks) {
+        if (aBlock.type === "env3d_event_lookat" && id == aBlock.id) {
+          if (aBlock.childBlocks_.length > 1) {
+            return true;
+          }
+        }
+      }
     }
   },
   {
     title: "C3D.io Challenge",
     text: [
-      "Try animating the car on the road",
-      "You can add more road blocks"
+      "Move the boat around the river by adding more animation blocks"
     ],
     condition: () => {
       return true;
@@ -311,7 +318,9 @@ const object = getBlock("object.png"),
   },
   {
     title: "",
-    text: ["Checking the workspace and make sure there is no lone block"],
+    text: [
+      "Checking the workspace and make sure there is no lone block"
+    ],
     condition: () => {
       return true;
     }
@@ -329,8 +338,9 @@ const object = getBlock("object.png"),
   {
     title: "Congratulations!",
     text: [
-      "You've completed this module",
-      `Click the cardboard icon and click "Fullscreen URL" to see the URL of your world. You can copy the URL and share it with your family and friends`,
+      `You've completed this module`,
+      `Click the cardboard icon and click "Fullscreen URL" to see the URL of your world`, 
+      `You can copy the URL and share it with your family and friends`,
     ],
     condition: () => {
       return true;
