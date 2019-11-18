@@ -7,12 +7,17 @@ function getBlock(block) {
   return `<img src="${imgDir}${block}" alt="aBlock" class="blocks"/>`;
 }
 
+function getBlockBig(block) {
+  return `<img src="${imgDir}${block}" alt="aBlock" class="blocks big"/>`;
+}
+
+
 const object = getBlock("object.png"),
       addObj_3dobj = getBlock("addObj_3dobj.png"),
       vehicles = getBlock("module2/vehicles.png"),
       car = getBlock("module2/car.png"),
       world = getBlock("world.png"),
-      outdoor = getBlock("outdoor.png"),
+      outdoor = getBlockBig("outdoor.png"),
       addObj = getBlock("addobj.png"),
       addObj_dis = getBlock("addobj_disable.png"),
       threeDObj = getBlock("3dobj.png"),
@@ -24,11 +29,11 @@ const object = getBlock("object.png"),
       move = getBlock("move.png"),
       aVariableTux = getBlock("tux.png"),
       turn = getBlock("turn.png"),
-      sequence = getBlock("doinsequence.png"),
+      sequence = getBlockBig("doinsequence.png"),
       move_short = getBlock("move_short.png"),
       turn_short = getBlock("turn_short.png"),
       events = getBlock("events.png"),
-      whenlookat = getBlock("whenlookat.png"),
+      whenlookat = getBlockBig("whenlookat.png"),
       roadAndSign = getBlock("module2/roadsandsigns.png");
 
 [

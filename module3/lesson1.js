@@ -7,11 +7,15 @@ function getBlock(block) {
   return `<img src="${imgDir}${block}" alt="aBlock" class="blocks"/>`;
 }
 
+function getBlockBig(block) {
+  return `<img src="${imgDir}${block}" alt="aBlock" class="blocks big"/>`;
+}
+
 const object = getBlock("object.png"),
       addObj_3dobj = getBlock("addObj_3dobj.png"),
       fourSeasons = getBlock("module3/fourSeasons.png"),
-      world = getBlock("world.png"),
-      outdoor = getBlock("outdoor.png"),
+      world = getBlockBig("world.png"),
+      outdoor = getBlockBig("outdoor.png"),
       vehicles = getBlock("module3/vehicles.png"),
       boat = getBlock("module3/boat.png"),
       addObj = getBlock("addobj.png"),
@@ -25,11 +29,11 @@ const object = getBlock("object.png"),
       move = getBlock("move.png"),
       aVariableTux = getBlock("tux.png"),
       turn = getBlock("turn.png"),
-      sequence = getBlock("doinsequence.png"),
+      sequence = getBlockBig("doinsequence.png"),
       move_short = getBlock("move_short.png"),
       turn_short = getBlock("turn_short.png"),
       events = getBlock("events.png"),
-      whenlookat = getBlock("whenlookat.png");
+      whenlookat = getBlockBig("whenlookat.png");
 
 
 [
