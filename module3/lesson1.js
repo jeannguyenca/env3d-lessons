@@ -14,7 +14,7 @@ function getBlockBig(block) {
 const object = getBlock("object.png"),
       addObj_3dobj = getBlock("addObj_3dobj.png"),
       fourSeasons = getBlock("module3/fourSeasons.png"),
-      world = getBlockBig("world.png"),
+      world = getBlock("world.png"),
       outdoor = getBlockBig("outdoor.png"),
       vehicles = getBlock("module3/vehicles.png"),
       boat = getBlock("module3/boat.png"),
