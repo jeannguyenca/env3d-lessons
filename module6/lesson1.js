@@ -1,8 +1,8 @@
 [
   {
-    title: "Loop",
+    title: "Nested Loop",
     text: [
-      `In this lesson, you'll learn how to use a Loop. 
+      `In this lesson, you'll learn how to create a Nested Loop. 
       <iframe
         style="margin:auto"
         width="100%"
@@ -16,7 +16,7 @@
     text: ["If not already, open a previously created VR world or create a basic world with at least two objects with variables assigned to them"]
   },
   {
-    text: [`Use Loop blocks to create a nested loop <img src="./lessons/module5/imgs/loop.png" alt="Loop" />`]
+    text: [`Use Loop blocks to create a nested loop <img src="./lessons/module6/imgs/loop.png" alt="Loop" />`]
   },
   {
     text: ["Check if your logic works. If you are done, click NEXT"]

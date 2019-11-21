@@ -7,10 +7,6 @@ function getBlock(block) {
   return `<img src="${imgDir}${block}" alt="aBlock" class="blocks"/>`;
 }
 
-function getBlockBig(block) {
-  return `<img src="${imgDir}${block}" alt="aBlock" class="blocks big"/>`;
-}
-
 const object = getBlock("object.png"),
       addObj_3dobj = getBlock("addObj_3dobj.png"),
       tutorial = getBlock("module1/tutorial.png"),
@@ -26,11 +22,11 @@ const object = getBlock("object.png"),
       move = getBlock("move.png"),
       aVariableTux = getBlock("tux.png"),
       turn = getBlock("turn.png"),
-      sequence = getBlockBig("doinsequence.png"),
+      sequence = getBlock("doinsequence.png"),
       move_short = getBlock("move_short.png"),
       turn_short = getBlock("turn_short.png"),
       events = getBlock("events.png"),
-      whenlookat = getBlockBig("whenlookat.png");
+      whenlookat = getBlock("whenlookat.png");
 
 
 
