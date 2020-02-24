@@ -194,7 +194,7 @@ const object = getBlock("object.png"),
       "Let's add road and road signs!",
       `From ${ object } choose ${ addObj_3dobj }`,
       `Choose ${ roadAndSign }`,
-      `To move object to different position, change coordinate`, `<a videoId=usEAwJ0UkZY">Watch video instruction "What is 3D coordinates?"</a>`
+      `To move object to different position, change coordinate`, `<a videoId=usEAwJ0UkZY>Watch video instruction "What is 3D coordinates?"</a>`
       
     ],
     condition: () => {
