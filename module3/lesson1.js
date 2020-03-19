@@ -124,7 +124,7 @@ const object = getBlock("object.png"),
     }
   },
   {
-    title: "Now let make a variable",
+    title: "Now let's make a variable",
     text: [
       `In order to animate this boat, we need to use a <a videoId="dejkw2aHDOI">variable</a>`,
       `Detach ${ addObj } and ${ threeDObj } of the boat`
