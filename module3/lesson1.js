@@ -92,7 +92,8 @@ const object = getBlock("object.png"),
   {
     title: "Explore the 3d environmnet object",
     text: [
-      `For the purpose of the tutorial, try to achieve the view below <a imgSrc="module3/imgs/hint.png">(Hint)</a> <img src="./lessons/module3/imgs/fourseasons_riverview.png" alt="Environment screenshot" /><br>`
+      `For the purpose of the tutorial, try to achieve the view below <img src="./lessons/module3/imgs/fourseasons_riverview.png" alt="Environment screenshot" />`,
+      `<a imgSrc="module3/imgs/hint.png">Check solution</a> `
       // (this will be implement with new UI) - position 50 2 30 - rotation 0 240 0`
     ],
     condition: () => {
